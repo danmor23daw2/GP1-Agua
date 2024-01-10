@@ -37,4 +37,17 @@ window.onload = function () {
     cerrarPopupBtn.addEventListener('click', function () {
         popup.classList.add('oculto');
     });
+
+        let section = document.getElementById("section");
+        let body = document.body;
+    
+        setTimeout(function () {
+            section.style.opacity = 1;
+            section.style.transform = "translateY(0)";
+    
+            body.classList.remove("body-index"); 
+    
+            
+        }, 500); 
+
 };
