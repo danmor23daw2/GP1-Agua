@@ -318,5 +318,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(8888, () => {
-    console.log('Servidor a http://localhost:8888');
+    console.log('Servidor a http://localhost:8888/index.html');
 });
