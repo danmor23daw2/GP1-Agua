@@ -226,4 +226,45 @@ canvas {
     padding:20px ;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
+
+}
+
+/*---------------Pagina INFO4------------------*/
+#fondo1{
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("../img/fondo.jpg");
+    margin: 0;
+}
+
+
+.articulo{
+    max-width: 700px;
+    margin-left: 100px;
+    margin-top: 10px;
+    padding: 30px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+.articulo2{
+    max-width: 500px;
+    margin-left: 900px;
+    margin-top: -210px;
+    padding: 30px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+#pelicula{
+    width: 480px;
+    margin-left: 100px;
+    margin-top: -100px;
+    padding: 30px;
+}
+
+#boton1{
+    margin-top: 100px;
 }
