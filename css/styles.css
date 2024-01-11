@@ -186,3 +186,47 @@ canvas {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     image-rendering: auto;
 }
+
+
+/*---------------Pagina INFO3------------------*/
+#info3{
+width: 500px;
+background-color: #333;
+padding: 10px;
+border-radius: 6px;
+text-align: center;
+margin: 10px 10px 10px 10px;
+}
+nav
+.navegacion-info {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 0px 200px 0px 200px;
+}
+
+.navegacion-info a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.navegacion-info a:hover {
+    color: #08dfc2;
+    transform: scale(1.5);
+}/*
+.info3{
+    width: 600px;
+    background-color: white;
+    border-radius: 6px;
+    padding: 20px;
+}*/
+#infoo3{
+    width: 600px;
+    background-color: white;
+    padding-left: 30px;
+    border-radius: 6px;
+}
