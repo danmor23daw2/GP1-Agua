@@ -202,23 +202,28 @@ canvas {
     height: 340px;
     border-radius: 20px;
     border: 4px solid #14bbdc;
+    text-align: left;
+    padding-left: 10px;
+
 }
 
 .artInfo3I{
     width: 200px;
     float: left;
-    padding-top: 10px;
+    padding-top: 20px;
+    padding-left: 10px;
 }
 .h1{
     color:#333;
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
-#main {
+#mainS {
     text-align: center;
     background-color: white;
     border-radius: 30px;
-    padding:10px ;
+    padding:20px ;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
 }
