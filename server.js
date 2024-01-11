@@ -314,6 +314,34 @@ const server = http.createServer((req, res) => {
                     res.end();
                 }
             });
+        }else if (reqUrl.pathname == '/img/dinero.jpg') {
+            fs.readFile('img/dinero.jpg', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "image/jpg; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
+        }else if (reqUrl.pathname == '/img/tabla.jpg') {
+            fs.readFile('img/tabla.jpg', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "image/jpg; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
         }        
 });
 
