@@ -4,7 +4,7 @@ window.onload = function () {
         { x: 1060, y: 1680, video: 'img/campogolf.mp4', texto: 'Campo de golf siendo regado excesivamente', enlace: 'info2.html' },
         { x: 860, y: 1750, video: 'img/CompeticionAcuatica.mp4', texto: 'Contaminación por culpa de deportes de agua', enlace: 'info3.html' },
         { x: 860, y: 1920, video: 'img/r1.mp4', texto: 'Funcion de un aspersor', enlace: 'info4.html' },
-        { x: 720, y: 2040, video: 'img/r2.mp4', texto: 'Porque no usar aspersores', enlace: 'info5.html' },
+        { x: 720, y: 2040, video: 'img/bomboclat.mp4', texto: 'Como poder evitar el malgasto', enlace: 'info5.html' },
     ];
 
     const mapa = document.getElementById('mapa');
