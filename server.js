@@ -314,6 +314,20 @@ const server = http.createServer((req, res) => {
                     res.end();
                 }
             });
+        }else if (reqUrl.pathname == '/img/regado.mp4') {
+            fs.readFile('img/regado.mp4', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "video/mp4; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
         }else if (reqUrl.pathname == '/img/dinero.jpg') {
             fs.readFile('img/dinero.jpg', function (err, sortida) {
                 if(err){
