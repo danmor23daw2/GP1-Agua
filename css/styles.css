@@ -297,24 +297,6 @@ canvas {
     background-color: #f0f0f0;
 }
 
-header {
-    background-color: #3498db;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-nav {
-    background-color: #2980b9;
-    padding: 10px;
-    text-align: center;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-}
 
 .siveng {
     display: flex;
@@ -348,7 +330,7 @@ nav a {
     line-height: 1.4;
     color: #555;
 }
-/*Futbol*/
+/*---------------Futbol------------------*/
 .progress1 {
     background-color: #08dfc2;
     width: 60%;
@@ -372,7 +354,7 @@ nav a {
     flex-direction: column;
     width: 700px;
     background-image: url("../img/fondo.jpg");
-    margin-top: 13%;
+    margin-top: 3%;
     margin-left: 26%;
     font-family: 'Montserrat', 'sans-serif';
 }
