@@ -6,7 +6,7 @@
     padding: 0;
     font-family: 'Arial', sans-serif;
     background-color: #f8f8f8;
-    color: #333;
+    color: #3498db;
     transition: background-color 2s;
 }
 body{
@@ -156,7 +156,7 @@ video {
     margin: 0;
 }
 .navegacion-info {
-    background-color: #333;
+    background-color: #3498db;
     padding: 10px;
     border-radius: 20px;
     text-align: center;
@@ -173,10 +173,10 @@ video {
 
 .navegacion-info a:hover {
     color: #08dfc2;
-    transform: scale(1.5);
+    transform: scale(1.3);
 }
 nav, .navegacion-info {
-    background-color: #333;
+    background-color: #2980b9;
     padding: 10px;
     border-radius: 6px;
     text-align: center;
@@ -277,6 +277,7 @@ canvas {
 #boton1{
     margin-top: 100px;
 }
+<<<<<<< Updated upstream
 
 /*---------------Pagina INFO5------------------*/
 
@@ -315,3 +316,68 @@ canvas {
       z-index: 1;
       width: 100%;
   }
+=======
+<<<<<<< Updated upstream
+=======
+
+/*---------------Pagina INFO5------------------*/
+
+.bod1 {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #2980b9;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.siveng {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.article {
+    width: 300px;
+    margin: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.article h1 {
+    color: #333;
+}
+
+.description {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.description p {
+    margin: 8px 0;
+    line-height: 1.4;
+    color: #555;
+}
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
