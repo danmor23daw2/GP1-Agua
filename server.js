@@ -300,8 +300,8 @@ const server = http.createServer((req, res) => {
                     res.end();
                 }
             });
-        }else if (reqUrl.pathname == '/img/r2.mp4') {
-            fs.readFile('img/r2.mp4', function (err, sortida) {
+        }else if (reqUrl.pathname == '/img/bomboclat.mp4') {
+            fs.readFile('img/bomboclat.mp4', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
