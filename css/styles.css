@@ -436,3 +436,17 @@ td.m06 {
     padding: 20px;
     font-family: 'Josefin Sans', sans-serif;
 }
+
+#t2{
+    margin-left: 50px;
+}
+#t3{
+    margin-left: 30px;
+}
+#t4{
+    margin-left: 20px;
+}
+
+.sis1{
+    display: flex;
+}
