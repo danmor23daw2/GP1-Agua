@@ -518,10 +518,7 @@ function iniciar() {
                     }
         }
         http.createServer(onRequest).listen(8888);
-        console.log("Servidor iniciat.");
-           
+        console.log("Servidor iniciat http://localhost:8888/index.html");
 }
-
-
 
 exports.iniciar = iniciar;  
