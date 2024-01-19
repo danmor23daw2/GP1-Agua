@@ -216,14 +216,14 @@ const server = http.createServer((req, res) => {
                     res.end();
                 }
             });
-        }else if (reqUrl.pathname == '/img/mapa.png') {
-            fs.readFile('img/mapa.png', function (err, sortida) {
+        }else if (reqUrl.pathname == '/img/mapa-golf.jpg') {
+            fs.readFile('img/mapa-golf.jpg', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
                 }else{
                     res.writeHead(200, {
-                        "Content-Type": "image/png; charset=utf-8"
+                        "Content-Type": "image/jpg; charset=utf-8"
                     });
                     console.log("ok");
                     res.write(sortida);
