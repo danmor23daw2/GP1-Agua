@@ -14,6 +14,6 @@
  * ORIGEN
  * Desenvolupament Aplicacions Web. Jesuïtes el Clot
  */
-var server = require("./M11_servidorMongoDB");
+var server = require("./server.js");
 
 server.iniciar();
