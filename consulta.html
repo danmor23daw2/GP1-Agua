@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <title>DAW2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="sergi.grau@fje.edu" />
+    <link rel="stylesheet" type="text/css" href="css/estils.css">
+    <script type="text/javascript" src="scripts/indexdb.js" defer></script>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    color: #3498db;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#desar {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+button#esborrar {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+button#netejar {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #3498db;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navegacion-info">
+        <a href="index.html">Home</a>
+    </nav>
+    <h1>Formulari per el usuari</h1>
+    <input type="text" id="nom" placeholder="nom" required>
+    <input type="number" id="edad" placeholder="edad">
+    <label for="esportTriat">
+        <select name="esportTriat" id="esportTriat">
+            <option value=""></option>
+            <option value="⚽">⚽</option>
+            <option value="🏈">🏈</option>
+            <option value="🏄">🏄</option>
+            <option value="🎾">🎾</option>
+        </select>
+    </label>
+    <button id="desar">desa</button>
+    <button id="esborrar">esborra</button>
+    <button id="netejar">neteja</button>
+    <table id="taula">
+    </table>
+</body>
+</html>
