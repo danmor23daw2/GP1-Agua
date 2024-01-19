@@ -173,6 +173,20 @@ function iniciar() {
                     res.end();
                 }
             });
+        }else if (reqUrl.pathname == '/scripts/dragAndDrop.js') {
+            fs.readFile('scripts/dragAndDrop.js', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/javascript; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
         }else if (reqUrl.pathname == '/scripts/script2.js') {
             fs.readFile('scripts/script2.js', function (err, sortida) {
                 if(err){
@@ -510,4 +524,4 @@ function iniciar() {
 
 
 
-exports.iniciar = iniciar;
+exports.iniciar = iniciar;  
