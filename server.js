@@ -1,10 +1,23 @@
 let http = require("http");
 let url = require("url")
 let fs = require("fs");
+let MongoClient = require('mongodb').MongoClient;
+let assert = require('assert');
+let ObjectId = require('mongodb').ObjectID;
+let crud = {
+    afegirDocument: function (alumne, db, err, callback) {
 
-const server = http.createServer((req, res) => {
-        const reqUrl = new URL(req.url, 'http://' + req.headers.host + '/');
+    }
+};
+
+function iniciar() {
+    function onRequest(req, res) {
+        let sortida;
+        const baseURL = req.protocol + '://' + req.headers.host + '/';
+        const reqUrl = new URL(req.url, baseURL);
         console.log("Petició per a  " + reqUrl.pathname + " rebuda.");
+        const ruta = reqUrl.pathname;
+        let cadenaConnexio = 'mongodb://127.0.0.1:27017/database';
 
         if (reqUrl.pathname == '/index.html') {
             fs.readFile('index.html', function (err, sortida) {
@@ -440,10 +453,75 @@ const server = http.createServer((req, res) => {
                     res.end();
                 }
             });
+        }else if (ruta == '/inici') {
+                fs.readFile('./surf.html', function (err, sortida) {
+                    if (err) {
+                        res.writeHead(500, { 'Content-Type': 'text/plain' });
+                        res.end('Error llegint fitxer');
+                    } else {
+                        res.writeHead(200, {
+                            "Content-Type": "text/html; charset=utf-8"
+                        });
+                        res.write(sortida);
+                        res.end();
+                    }
+                });
+            }
+            else if (ruta == '/desa') {
+                MongoClient.connect(cadenaConnexio, function (err, client) {
+                    assert.equal(null, err);
+                    console.log("Connexió correcta");
+                    var db = client.db('database');
+                    db.collection('usuaris').insertOne({
+                        "nom": reqUrl.searchParams.get('nom')
+                    }, function (err, result) {
+                        assert.equal(err, null);
+                        console.log("Afegit document a col·lecció usuaris");
+                        client.close(); 
+                    });
+                });
+            }
+            else if (ruta == '/consulta') {
+                MongoClient.connect(cadenaConnexio, function (err, client) {
+                    assert.equal(null, err);
+                    console.log("Connexió correcta");
+                    var db = client.db('database');
             
-        }        
-});
+                    res.writeHead(200, {
+                        "Content-Type": "text/html; charset=utf-8"
+                    });
+                    console.log("consulta document a col·lecció usuaris");
+            
+                    let cursor = db.collection('usuaris').find({});
+            
+                    cursor.toArray(function (err, results) {
+                        assert.equal(err, null);
+                        if (results != null) {
+                            results.forEach((doc) => {
+                                res.write(`nom ${doc.nom} <br>`);
+                            });
+                            res.end();
+                        } else {
+                            res.end();
+                        }
+                        client.close(); 
+                    });
+                });
+                        
+                    }else {
+                        res.writeHead(404, {
+                            "Content-Type": "text/html; charset=utf-8"
+                        });
+                        sortida = "404 NOT FOUND";
+                        res.write(sortida);
+                        res.end();
+                    }
+        }
+        http.createServer(onRequest).listen(8888);
+        console.log("Servidor iniciat.");
+           
+}
 
-server.listen(8888, () => {
-    console.log('Servidor a http://localhost:8888/index.html');
-});
+
+
+exports.iniciar = iniciar;  
