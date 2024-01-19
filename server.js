@@ -118,8 +118,8 @@ const server = http.createServer((req, res) => {
                     res.end();
                 }
             });
-        }else if (reqUrl.pathname == '/rugby.html') {
-            fs.readFile('rugby.html', function (err, sortida) {
+        }else if (reqUrl.pathname == '/consulta.html') {
+            fs.readFile('consulta.html', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
@@ -190,6 +190,20 @@ const server = http.createServer((req, res) => {
             });
         }else if (reqUrl.pathname == '/scripts/info.js') {
             fs.readFile('scripts/info.js', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/javascript; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
+        }else if (reqUrl.pathname == '/scripts/indexdb.js') {
+            fs.readFile('scripts/indexdb.js', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
@@ -426,6 +440,7 @@ const server = http.createServer((req, res) => {
                     res.end();
                 }
             });
+            
         }        
 });
 
