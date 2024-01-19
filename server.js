@@ -477,9 +477,14 @@ function iniciar() {
                     }, function (err, result) {
                         assert.equal(err, null);
                         console.log("Afegit document a col·lecció usuaris");
-                        client.close(); 
+                        client.close();
+                        res.writeHead(302, {
+                            'Location': '/index.html'
+                        });
+                        res.end();
                     });
                 });
+            
             }
             else if (ruta == '/consulta') {
                 MongoClient.connect(cadenaConnexio, function (err, client) {
