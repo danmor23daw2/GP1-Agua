@@ -5,11 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@350&display=swap');
 
 :root{
-    --text: rgb(8, 13, 13);
-    --background: rgb(250, 253, 253);
-    --primary: rgb(68, 200, 199);
-    --secondary: rgb(134, 233, 233);
-    --accent: rgb(69, 240, 239);
+    --text: rgb(14, 37, 35);
+    --background: rgb(228, 247, 246);
+    --primary: rgb(24, 114, 106);
+    --secondary: rgb(108, 234, 221);
+    --accent: rgb(16, 198, 180);
+    
+    
     
 }
 .body-index {
@@ -58,6 +60,7 @@ body {
     margin-top: 150px;
     padding: 10px;
     text-align: justify;
+    color: var(--text);
     border: solid 5px var(--secondary);
     border-radius: 30px;
 }
@@ -92,7 +95,7 @@ body {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: var(--primary);
+    background-color: var(--secondary);
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
@@ -100,7 +103,7 @@ body {
 
 .marcador:hover {
     transform: scale(1.3);
-    background-color: var(--secondary);
+    background-color: var(--primary);
 }
 
 #popup {
@@ -109,6 +112,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
+    color: var(--text);
     background-color: var(--background);
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -160,6 +164,7 @@ video {
     border: 2px solid var(--accent);
     border-radius: 20px;
     font-family: 'Josefin Sans', sans-serif;
+    color: var(--text);
 }
 
 
@@ -175,6 +180,7 @@ video {
     background-image: url("../img/fondo.jpg");
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
+    color: var(--text);
 }
 
 .navegacion-info {
@@ -305,6 +311,7 @@ canvas {
     margin-top: 10px;
     padding: 30px;
     background-color: var(--secondary);
+    color: var(--text);
     border-radius: 10px;
 }
 
@@ -313,6 +320,7 @@ canvas {
     margin-left: 900px;
     margin-top: -210px;
     padding: 30px;
+    color: var(--text);
     background-color: var(--secondary);
     border-radius: 10px;
 }
@@ -328,13 +336,15 @@ canvas {
     margin-top: 100px;
 }
 
-/*---------------Futbol------------------*/
+/*---------------Deportes------------------*/
 .progreso1 {
     background-color: var(--secondary);
+    color: var(--text);
     width: 60%;
 }
 .progreso4 {
     background-color: var(--primary);
+    color: var(--text);
     width: 70%;
 }
 .body-fut {
@@ -345,11 +355,13 @@ canvas {
     background-image: url("../img/fondo.jpg");
     margin-top: 3%;
     margin-left: 26%;
+    color: var(--text);
     font-family: 'Montserrat', 'sans-serif';
 }
 
 .futbloA {
     text-align: left;
+    
 }
 .fot {
     text-align: center;
@@ -359,6 +371,7 @@ canvas {
 .fot nav {
     display: flex;
     justify-content: space-around;
+    
 }
 /*---------------info5------------------*/
 
@@ -386,6 +399,7 @@ td.m06 {
     width: 80px;
     height: 80px;
     transition: transform 0.3s ease;
+    
 }
 
 .ho:hover {
@@ -417,6 +431,7 @@ td.m06 {
     flex-wrap: wrap;
     padding: 20px;
     font-family: 'Josefin Sans', sans-serif;
+    color: var(--text);
 }
 
 #t2{
