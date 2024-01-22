@@ -33,22 +33,8 @@ function iniciar() {
                     res.end();
                 }
             });
-        }else if (reqUrl.pathname == '/futbol.html') {
-            fs.readFile('futbol.html', function (err, sortida) {
-                if(err){
-                    res.writeHead(500, { 'Content-Type': 'text/plain' });
-                    res.end('Error llegint fitxer');
-                }else{
-                    res.writeHead(200, {
-                        "Content-Type": "text/html; charset=utf-8"
-                    });
-                    console.log("ok");
-                    res.write(sortida);
-                    res.end();
-                }
-            });
-        }else if (reqUrl.pathname == '/golf.html') {
-            fs.readFile('golf.html', function (err, sortida) {
+        }else if (reqUrl.pathname == '/deportes.html') {
+            fs.readFile('deportes.html', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
@@ -145,8 +131,8 @@ function iniciar() {
                     res.end();
                 }
             });
-        }else if (reqUrl.pathname == '/surf.html') {
-            fs.readFile('surf.html', function (err, sortida) {
+        }else if (reqUrl.pathname == '/mongo.html') {
+            fs.readFile('mongo.html', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
