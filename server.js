@@ -145,6 +145,20 @@ function iniciar() {
                     res.end();
                 }
             });
+        }else if (reqUrl.pathname == '/registro.html') {
+            fs.readFile('registro.html', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/html; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
         }else if (reqUrl.pathname == '/scripts/script.js') {
             fs.readFile('scripts/script.js', function (err, sortida) {
                 if(err){
@@ -465,7 +479,7 @@ function iniciar() {
                         console.log("Afegit document a col·lecció usuaris");
                         client.close();
                         res.writeHead(302, {
-                            'Location': '/index.html'
+                            'Location': '/registro.html'
                         });
                         res.end();
                     });
