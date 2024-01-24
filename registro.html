@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Registro</title>
+</head>
+<body>
+    <header class="head">
+        <h1>Apoya a la causa</h1>
+    </header>
+    <br>
+    <nav class="navegacion-info5">
+        <a href="index.html">Home</a>
+    </nav>
+    <div id="cente3">
+        <h2>Nombres registrados:</h2>
+        <table id="nombresTable">
+            <tr><th>Nombre</th></tr>
+        </table>
+    </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            fetch('/lista_nombres')
+                .then(response => response.json())
+                .then(data => {
+                    const table = document.getElementById('nombresTable');
+                    data.forEach(name => {
+                        const row = table.insertRow();
+                        const cell = row.insertCell(0);
+                        cell.textContent = name.nom;
+                    });
+                })
+        });
+    </script>
+</body>
+</html>

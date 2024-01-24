@@ -145,6 +145,20 @@ function iniciar() {
                     res.end();
                 }
             });
+        }else if (reqUrl.pathname == '/registro.html') {
+            fs.readFile('registro.html', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/html; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
         }else if (reqUrl.pathname == '/scripts/script.js') {
             fs.readFile('scripts/script.js', function (err, sortida) {
                 if(err){
@@ -453,24 +467,46 @@ function iniciar() {
                     }
                 });
             }
-            else if (ruta == '/desa') {
+            else if (ruta === '/desa') {
                 MongoClient.connect(cadenaConnexio, function (err, client) {
                     assert.equal(null, err);
                     console.log("Connexió correcta");
-                    var db = client.db('database');
-                    db.collection('usuaris').insertOne({
-                        "nom": reqUrl.searchParams.get('nom')
-                    }, function (err, result) {
+                    const db = client.db('database');
+                    const nom = reqUrl.searchParams.get('nom');
+            
+                    db.collection('usuaris').insertOne({ "nom": nom }, function (err, result) {
                         assert.equal(err, null);
                         console.log("Afegit document a col·lecció usuaris");
                         client.close();
+            
                         res.writeHead(302, {
-                            'Location': '/index.html'
+                            'Location': '/registro.html'
                         });
                         res.end();
                     });
                 });
+            }
+            else if (ruta === '/lista_nombres') {
+                MongoClient.connect(cadenaConnexio, function (err, client) {
+                    assert.equal(null, err);
+                    console.log("Connexió correcta");
+                    const db = client.db('database');
             
+                    res.writeHead(200, {
+                        "Content-Type": "application/json" 
+                    });
+                    console.log("Consulta de documentos en la colección usuaris");
+            
+                    const cursor = db.collection('usuaris').find({});
+            
+                    cursor.toArray(function (err, results) {
+                        assert.equal(err, null);
+            
+                        res.write(JSON.stringify(results.map(doc => ({ nom: doc.nom }))));
+                        res.end();
+                        client.close();
+                    });
+                });
             }
             else if (ruta == '/consulta') {
                 MongoClient.connect(cadenaConnexio, function (err, client) {
@@ -498,6 +534,7 @@ function iniciar() {
                         client.close(); 
                     });
                 });
+                
                         
                     }else {
                         res.writeHead(404, {
