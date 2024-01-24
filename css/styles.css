@@ -4,16 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@350&display=swap');
 
-:root{
+:root {
     --text: rgb(14, 37, 35);
     --background: rgb(228, 247, 246);
     --primary: rgb(24, 114, 106);
     --secondary: rgb(108, 234, 221);
     --accent: rgb(16, 198, 180);
-    
-    
-    
 }
+
 .body-index {
     margin: 0;
     padding: 0;
@@ -22,12 +20,27 @@
     transition: background-color 2s;
 }
 
+.modoOscuro {
+    --text: rgb(228, 247, 246);
+    --background: rgb(14, 37, 35);
+}
+
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Josefin Sans', sans-serif;
+    color: var(--text);
     background-color: var(--background);
 }
+#modo-oscuro {
+    background-color: var(--background);
+    border-radius: 100px;
+    width: 80px;
+    position: fixed;
+    top: 10px; 
+    left: 10px; 
+    cursor: pointer;
+}
+
+
 
 /*---------------Titulo------------------*/
 
@@ -236,6 +249,17 @@ canvas {
 }
 
 /*---------------Pagina INFO3------------------*/
+.bodyInfo2 {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--text);
+}
 .artInfo3 {
     width: 700px;
     height: 300px;
@@ -274,14 +298,13 @@ canvas {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-image: url("../img/fondo.jpg");
     margin: 0;
 }
 
 
 .articulo {
-    max-width: 700px;
-    margin-left: 100px;
+    max-width: 600px;
+    margin-left: 200px;
     margin-top: 10px;
     padding: 30px;
     background-color: var(--secondary);
@@ -290,9 +313,9 @@ canvas {
 }
 
 .articulo2 {
-    max-width: 500px;
+    max-width: 375px;
     margin-left: 900px;
-    margin-top: -210px;
+    margin-top: -220px;
     padding: 30px;
     color: var(--text);
     background-color: var(--secondary);
@@ -301,8 +324,8 @@ canvas {
 
 #pelicula {
     width: 480px;
-    margin-left: 100px;
-    margin-top: -100px;
+    margin-left: 170px;
+    margin-top: -170px;
     padding: 30px;
 }
 
@@ -536,4 +559,56 @@ td.m06 {
 #nombresTable th{
     border: 2px var(--accent) solid ;
 
+}
+/*---------------Consultas------------------*/
+.consulta{
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+#h1{
+    color: #3498db;
+}
+.input {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid var(--background);
+    border-radius: 5px;
+}
+#esportTriat {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.buto{
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buto#desar {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.buto#esborrar {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.buto#netejar {
+    background-color: #f39c12;
+    color: #fff;
+}  
+#taula {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid var(--accent);
+    padding: 10px;
+    text-align: left;
+    color: var(--text);
 }
