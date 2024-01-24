@@ -229,6 +229,20 @@ function iniciar() {
                     res.end();
                 }
             });
+        }else if (reqUrl.pathname == '/scripts/modoOscuro.js') {
+            fs.readFile('scripts/modoOscuro.js', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/javascript; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
         }else if (reqUrl.pathname == '/css/styles.css') {
             fs.readFile('css/styles.css', function (err, sortida) {
                 if(err){
@@ -441,6 +455,48 @@ function iniciar() {
             });
         }else if (reqUrl.pathname == '/img/tuborieg.png') {
             fs.readFile('img/tuborieg.png', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "image/png; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
+        }else if (reqUrl.pathname == '/img/off.jpg') {
+            fs.readFile('img/off.jpg', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "image/jpg; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
+        }else if (reqUrl.pathname == '/img/on.png') {
+            fs.readFile('img/on.png', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "image/png; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
+        }else if (reqUrl.pathname == '/img/offf.png') {
+            fs.readFile('img/offf.png', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
