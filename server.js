@@ -652,6 +652,40 @@ function iniciar() {
                     });
                 });
             }
+            else if (ruta === '/modifica' && req.method === 'POST') {
+                let body = '';
+            
+                req.on('data', chunk => {
+                    body += chunk.toString();
+                });
+            
+                req.on('end', () => {
+                    const datos = new URLSearchParams(body);
+                    const nombreActual = datos.get('nombreActual');
+                    const nuevoNombre = datos.get('nuevoNombre');
+            
+                    MongoClient.connect(cadenaConnexio, function (err, client) {
+                        assert.equal(null, err);
+                        console.log("Connexió correcta");
+                        const db = client.db('database');
+            
+                        db.collection('usuaris').updateOne({ "nom": nombreActual }, { $set: { "nom": nuevoNombre } }, function (err, result) {
+                            if (err) {
+                                console.error("Error al modificar el nombre:", err);
+                                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                                res.end('Error al modificar el nombre');
+                            } else {
+                                if (result.modifiedCount === 1) {
+                                    console.log("Nombre modificado en la colección usuaris");
+                                    res.writeHead(302, { 'Location': '/registro.html' });
+                                    res.end();
+                            }
+                        }
+                            client.close();
+                        });
+                    });
+                });
+            }
             
                     else {
                         res.writeHead(404, {
