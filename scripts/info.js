@@ -23,6 +23,4 @@ if (esModoOscuroGuardar === 'true') {
     document.body.classList.add('modoOscuro');
 
 }
-
-
 }

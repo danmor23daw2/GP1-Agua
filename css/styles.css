@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Montserrat:wght@100;300&family=Noto+Sans:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@350&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anek%20Malayalam:700|Anek%20Malayalam:400');
 
 :root {
     --text: rgb(14, 37, 35);
@@ -108,7 +109,7 @@ body {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: var(--secondary);
+    background-color: var(--text);
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
@@ -527,10 +528,11 @@ td.m06 {
 
 .submit{
     background-color: var(--secondary);
-    width: 40px;
-    height: 30px;
-    border-radius: 20px;
+    border-radius: 5px;
     border: none;
+    width: 61px;
+    height: 22.5px;
+    
 }
 .submit:hover{
     background-color: var(--primary);
@@ -591,17 +593,17 @@ td.m06 {
 
 .buto#desar {
     background-color: #2ecc71;
-    color: #fff;
+    color: var(--text);
 }
 
 .buto#esborrar {
     background-color: #e74c3c;
-    color: #fff;
+    color: var(--text);
 }
 
 .buto#netejar {
     background-color: #f39c12;
-    color: #fff;
+    color: var(--text);
 }  
 #taula {
     width: 100%;
@@ -611,4 +613,44 @@ td.m06 {
     padding: 10px;
     text-align: left;
     color: var(--text);
+}
+.eliminar1 {
+    background-color: var(--accent);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 0px 500px 0px 500px;
+}
+.eliminar1 a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.eliminar1 a:hover {
+    color: var(--background);
+    transform: scale(1.1);
+}
+
+.modificar1 {
+    background-color: var(--accent);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 0px 500px 0px 500px;
+
+}
+.modificar1 a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.modificar1 a:hover {
+    color: var(--background);
+    transform: scale(1.1);
 }
