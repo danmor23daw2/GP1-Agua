@@ -145,6 +145,34 @@ function iniciar() {
                     res.end();
                 }
             });
+        }else if (reqUrl.pathname == '/modificar.html') {
+            fs.readFile('modificar.html', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/html; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
+        }else if (reqUrl.pathname == '/eliminar.html') {
+            fs.readFile('eliminar.html', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/html; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
         }else if (reqUrl.pathname == '/registro.html') {
             fs.readFile('registro.html', function (err, sortida) {
                 if(err){
@@ -590,9 +618,42 @@ function iniciar() {
                         client.close(); 
                     });
                 });
-                
-                        
-                    }else {
+            }
+            else if (ruta === '/eliminar' && req.method === 'POST') {
+                let body = '';
+
+                req.on('data', chunk => {
+                    body += chunk.toString();
+                });
+            
+                req.on('end', () => {
+                    const nombreAEliminar = new URLSearchParams(body).get('nom');
+            
+                    MongoClient.connect(cadenaConnexio, function (err, client) {
+                        assert.equal(null, err);
+                        console.log("Connexió correcta");
+                        const db = client.db('database');
+            
+                        db.collection('usuaris').deleteOne({ "nom": nombreAEliminar }, function (err, result) {
+                            if (err) {
+                                console.error("Error al eliminar el documento:", err);
+                                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                                res.end('Error al eliminar el documento');
+                            } else {
+                                if (result.deletedCount === 1) {
+                                    console.log("Documento eliminado de la colección usuaris");
+                                    res.writeHead(302, { 'Location': '/registro.html' });
+                                    res.end();
+                                }
+                            }
+            
+                            client.close();
+                        });
+                    });
+                });
+            }
+            
+                    else {
                         res.writeHead(404, {
                             "Content-Type": "text/html; charset=utf-8"
                         });
