@@ -4,11 +4,6 @@ let fs = require("fs");
 let MongoClient = require('mongodb').MongoClient;
 let assert = require('assert');
 let ObjectId = require('mongodb').ObjectID;
-let crud = {
-    afegirDocument: function (alumne, db, err, callback) {
-
-    }
-};
 
 function iniciar() {
     function onRequest(req, res) {
@@ -175,6 +170,34 @@ function iniciar() {
             });
         }else if (reqUrl.pathname == '/registro.html') {
             fs.readFile('registro.html', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/html; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
+        }else if (reqUrl.pathname == '/registrar.html') {
+            fs.readFile('registrar.html', function (err, sortida) {
+                if(err){
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error llegint fitxer');
+                }else{
+                    res.writeHead(200, {
+                        "Content-Type": "text/html; charset=utf-8"
+                    });
+                    console.log("ok");
+                    res.write(sortida);
+                    res.end();
+                }
+            });
+        }else if (reqUrl.pathname == '/login.html') {
+            fs.readFile('login.html', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
@@ -537,20 +560,65 @@ function iniciar() {
                     res.end();
                 }
             });
-        }else if (ruta == '/inici') {
-                fs.readFile('./surf.html', function (err, sortida) {
-                    if (err) {
-                        res.writeHead(500, { 'Content-Type': 'text/plain' });
-                        res.end('Error llegint fitxer');
-                    } else {
-                        res.writeHead(200, {
-                            "Content-Type": "text/html; charset=utf-8"
+        }else if (ruta === '/registrar') {
+                MongoClient.connect(cadenaConnexio, function (err, client) {
+                    assert.equal(null, err);
+                    console.log("Connexió correcta");
+                    const db = client.db('database');
+                    const nom = reqUrl.searchParams.get('nom');
+                    const contrasenya = reqUrl.searchParams.get('contrasenya');
+            
+                    db.collection('usuaris').insertOne({ "nom": nom ,"contrasenya": contrasenya}, function (err, result) {
+                        assert.equal(err, null);
+                        console.log("Afegit document a col·lecció usuaris");
+                        client.close();
+            
+                        res.writeHead(302, {
+                            'Location': '/index.html'
                         });
-                        res.write(sortida);
                         res.end();
-                    }
+                    });
                 });
-            }
+            
+        } else if (ruta === '/login') {
+            let body = '';
+        
+            req.on('data', chunk => {
+                body += chunk.toString();
+            });
+        
+            req.on('end', () => {
+                const { nom, contrasenya } = JSON.parse(body);
+        
+                MongoClient.connect('mongodb://localhost:27017/database', { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
+                    assert.equal(null, err);
+                    console.log("Connexió correcta");
+        
+                    const db = client.db('database');
+
+                    db.collection('usuaris').findOne({ "nom": nom, "contrasenya": contrasenya }, function (err, user) {
+                        if (err) {
+                            console.error("Error en la autenticación:", err);
+                            res.writeHead(500, { 'Content-Type': 'text/plain' });
+                            res.end('Error en la autenticación');
+                        } else {
+                            if (user) {
+                                console.log("Autenticación exitosa");
+                                res.writeHead(302, { 'Location': '/index.html' });
+                                res.end();
+                            } else {
+                                console.log("Autenticación fallida");
+                                res.writeHead(401, { 'Content-Type': 'text/plain' });
+                                res.end('Credenciales incorrectas');
+                            }
+                        }
+        
+                        client.close();
+                    });
+                });
+            });
+        }
+        
             else if (ruta === '/desa') {
                 MongoClient.connect(cadenaConnexio, function (err, client) {
                     assert.equal(null, err);
@@ -695,9 +763,10 @@ function iniciar() {
                         res.write(sortida);
                         res.end();
                     }
-        }
-        http.createServer(onRequest).listen(8888);
-        console.log("Servidor iniciat http://localhost:8888/index.html");
-}
-
-exports.iniciar = iniciar;  
+                    
+            }
+                http.createServer(onRequest).listen(8888);
+                console.log("Servidor iniciat http://localhost:8888/registrar.html");
+            }
+            
+            exports.iniciar = iniciar;
