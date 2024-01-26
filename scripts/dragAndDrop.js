@@ -24,7 +24,7 @@ window.onload = function () {
             ]
         },
         {
-            title: 'Aspersion',
+            title: 'Aspersión',
             texto3: [
                 'Constante - Al estar poniendo agua por todas las zonas que necesiten',
                 'Barato - Instalar un regado por aspersion es bastante barato y eficiente pero con algunas perdidas de agua y dinero',
@@ -32,7 +32,7 @@ window.onload = function () {
             ]
         },
         {
-            title: 'Micro aspersion',
+            title: 'Micro Aspersión',
             texto3: [
                 'Menos zona - Este metodo es casi igual que el de aspersion con la diferencia de que abarca una pequeña zona',
                 'Mas facil - Puede se mas facil de instalar por que exiosten micro aspersores que son portables, no hace falta ponerlos bajo tierra',
