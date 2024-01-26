@@ -206,7 +206,7 @@ video {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("../img/fondo.jpg");
+    background-color: var(--mongo);
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
     color: var(--text);
@@ -354,18 +354,20 @@ canvas {
     background-color: var(--secondary);
     color: var(--text);
     width: 60%;
+    margin-left: 32px;
 }
 .progreso4 {
     background-color: var(--primary);
     color: var(--text);
-    width: 70%;
+    width: 75%;
+    margin-left: 32px;
 }
 .body-fut {
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
     width: 700px;
-    background-image: url("../img/fondo.jpg");
+    background-color: var(--mongo);
     margin-top: 3%;
     margin-left: 26%;
     color: var(--text);
