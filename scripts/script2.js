@@ -5,8 +5,8 @@ window.onload = function () {
     canvas.height = 400;
 
     var years = [2014, 2016, 2018, 2020, 2022, 2024];
-    var cantidadFutbol = [100, 200, 240, 270, 350, 400];
-    var cantidadGolf = [70, 140, 100, 140, 230, 340];
+    var cantidadFutbol = [200, 200, 190, 130, 350, 400];
+    var cantidadGolf = [130, 140, 150, 100, 240, 340];
 
     var margin = 50;
     var maxY = Math.max(...cantidadFutbol, ...cantidadGolf);
@@ -65,22 +65,28 @@ window.onload = function () {
     }
 
     const modoOscuroI = document.getElementById('modo-oscuro');
-
+    
     modoOscuroI.addEventListener('click', function() {
         document.body.classList.toggle('modoOscuro');
         const esModoOscuro = document.body.classList.contains('modoOscuro');
         localStorage.setItem('Oscuro', esModoOscuro);
-        if (esModoOscuro) {
-            modoOscuroI.src = 'img/on.png';
-        } else {
-            modoOscuroI.src = 'img/offf.png';
-        }
+        actualizarImagenModoOscuro(modoOscuroI, esModoOscuro);
     });
 
     const esModoOscuroGuardar = localStorage.getItem('Oscuro');
     if (esModoOscuroGuardar === 'true') {
         document.body.classList.add('modoOscuro');
+        actualizarImagenModoOscuro(modoOscuroI, true);
     }
+
+
+function actualizarImagenModoOscuro(elemento, esModoOscuro) {
+    if (esModoOscuro) {
+        elemento.src = 'img/on.png';
+    } else {
+        elemento.src = 'img/offf.png';
+    }
+}
 
 
 };

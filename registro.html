@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="scripts/modoOscuro.js"></script>
+    <script type="text/javascript" src="scripts/registro.js"></script>
     <title>Registro</title>
 </head>
 <body>
@@ -17,27 +17,12 @@
         <br><br>
         <a href="mongo.html">Ayudar</a>
     </nav>
-    <img id="modo-oscuro" src="img/off.jpg"></img>
+    <img id="modo-oscuro" src="img/offf.png"></img>
     <div id="cente3">
         <h2>Nombres registrados:</h2>
         <table id="nombresTable">
             <tr><th>Nombre</th></tr>
         </table>
     </div>
-
-    <script>
-        window.addEventListener("DOMContentLoaded", function () {
-            fetch('/lista_nombres')
-                .then(response => response.json())
-                .then(data => {
-                    const table = document.getElementById('nombresTable');
-                    data.forEach(name => {
-                        const row = table.insertRow();
-                        const cell = row.insertCell(0);
-                        cell.textContent = name.nom;
-                    });
-                })
-        });
-    </script>
 </body>
 </html>

@@ -11,6 +11,7 @@
     --primary: rgb(24, 114, 106);
     --secondary: rgb(108, 234, 221);
     --accent: rgb(16, 198, 180);
+    --mongo: rgb(195, 237, 240);
 }
 
 .body-index {
@@ -24,24 +25,38 @@
 .modoOscuro {
     --text: rgb(228, 247, 246);
     --background: rgb(14, 37, 35);
+    --mongo: rgb(5, 77, 71);
 }
-
 body {
     font-family: 'Josefin Sans', sans-serif;
     color: var(--text);
     background-color: var(--background);
 }
 #modo-oscuro {
-    background-color: var(--background);
-    border-radius: 100px;
-    width: 80px;
+
+    width: 120px;
     position: fixed;
     top: 10px; 
     left: 10px; 
     cursor: pointer;
 }
-
-
+/*---------------Login------------------*/
+.usuari-no{
+margin-top: 200px;
+text-align: center;
+color: red;
+}
+.login-div{
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: var(--mongo);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.texto-login{
+    color: var(--text);
+}
 
 /*---------------Titulo------------------*/
 
