@@ -238,8 +238,8 @@ function iniciar() {
                     res.end();
                 }
             });
-        }else if (reqUrl.pathname == '/scripts/script2.js') {
-            fs.readFile('scripts/script2.js', function (err, sortida) {
+        }else if (reqUrl.pathname == '/scripts/canva.js') {
+            fs.readFile('scripts/canva.js', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');
@@ -252,8 +252,8 @@ function iniciar() {
                     res.end();
                 }
             });
-        }else if (reqUrl.pathname == '/scripts/info.js') {
-            fs.readFile('scripts/info.js', function (err, sortida) {
+        }else if (reqUrl.pathname == '/scripts/info1.js') {
+            fs.readFile('scripts/info1.js', function (err, sortida) {
                 if(err){
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error llegint fitxer');

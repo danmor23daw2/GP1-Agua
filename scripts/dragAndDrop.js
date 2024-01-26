@@ -15,15 +15,16 @@ window.onload = function () {
 
     var texto = [
         {
-            title: '1.Riego por Goteo',
+            title: 'Riego por Goteo',
             texto3: [
+                'LA QUE MENOS GASTA',
                 'Total uso - Al estar utilizando poca agua pero directo en el sitio indicado hace que sea mas eficiente'
                 
 
             ]
         },
         {
-            title: '2.Aspersion',
+            title: 'Aspersión',
             texto3: [
                 'Constante - Al estar poniendo agua por todas las zonas que necesiten',
                 'Barato - Instalar un regado por aspersion es bastante barato y eficiente pero con algunas perdidas de agua y dinero',
@@ -31,7 +32,7 @@ window.onload = function () {
             ]
         },
         {
-            title: '3.Micro aspersion',
+            title: 'Micro Aspersión',
             texto3: [
                 'Menos zona - Este metodo es casi igual que el de aspersion con la diferencia de que abarca una pequeña zona',
                 'Mas facil - Puede se mas facil de instalar por que exiosten micro aspersores que son portables, no hace falta ponerlos bajo tierra',
@@ -39,8 +40,9 @@ window.onload = function () {
             ]
         },
         {
-            title: '4.Manguera',
+            title: 'Manguera ',
             texto3: [
+                'LA QUE MÁS GASTA',
                 'Tiempo - Este metodo no esta mal pero es el mas tedioso por que requiere de uso manual.',
                 'Gente - Este metodo necesita mucha mas gente por qu euna sola persona no podria regar un campo entero en 1 dia'
             ]

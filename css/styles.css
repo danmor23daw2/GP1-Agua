@@ -206,7 +206,7 @@ video {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("../img/fondo.jpg");
+    background-color: var(--mongo);
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
     color: var(--text);
@@ -354,18 +354,20 @@ canvas {
     background-color: var(--secondary);
     color: var(--text);
     width: 60%;
+    margin-left: 32px;
 }
 .progreso4 {
     background-color: var(--primary);
     color: var(--text);
-    width: 70%;
+    width: 75%;
+    margin-left: 32px;
 }
 .body-fut {
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
     width: 700px;
-    background-image: url("../img/fondo.jpg");
+    background-color: var(--mongo);
     margin-top: 3%;
     margin-left: 26%;
     color: var(--text);
@@ -409,8 +411,8 @@ td.m06 {
 }
 
 .ho {
-    width: 80px;
-    height: 80px;
+    width: 110px;
+    height: 130px;
     transition: transform 0.3s ease;
     
 }
@@ -418,7 +420,9 @@ td.m06 {
 .ho:hover {
     transform: scale(1.1);
 }
-
+.drag{
+    margin-left: -40px;
+}
 #asper{
     margin-right: 30px;
     margin-bottom: 20px;
